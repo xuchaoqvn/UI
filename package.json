@@ -1,0 +1,21 @@
+{
+  "name": "com.simpleframework.ui",
+  "version": "1.0.0",
+  "displayName": "UI",
+  "unity": "2019.4",
+  "description": "UI系统",
+  "dependencies": {
+    "com.simpleframework.config": "https://github.com/xuchaoqvn/Config.git"
+ },
+  "keywords": [
+    "SimpleFramework",
+    "UI"
+  ],
+  "author": {
+    "name": "鱼"
+  },
+    "repository": {
+    "url": "https://github.com/xuchaoqvn/UI.git",
+    "type": "git"
+  }
+}
