@@ -13,18 +13,18 @@ namespace SimpleFramework.UI
     {
         #region Field
         /// <summary>
-        /// 对话框
+        /// 设置面板
         /// </summary>
         [SerializeField]
-        [Header("对话框")]
-        protected PopBoxForm m_PopBoxForm;
+        [Header("设置面板")]
+        protected SettingForm m_SettingForm;
 
         /// <summary>
-        /// 消息面板
+        /// UGUI位置面板
         /// </summary>
         [SerializeField]
-        [Header("消息面板")]
-        protected MessageForm m_MessageForm;
+        [Header("UGUI位置面板")]
+        protected AnchoredPositionPopForm m_AnchoredPositionPopForm;
 
         /// <summary>
         /// 文本弹出面板
@@ -55,35 +55,37 @@ namespace SimpleFramework.UI
         protected AudioPopForm m_AudioPopForm;
 
         /// <summary>
-        /// 设置面板
+        /// 消息面板
         /// </summary>
         [SerializeField]
-        [Header("设置面板")]
-        protected SettingForm m_SettingForm;
+        [Header("消息面板")]
+        protected MessageForm m_MessageForm;
+
+        /// <summary>
+        /// 对话框
+        /// </summary>
+        [SerializeField]
+        [Header("对话框")]
+        protected PopBoxForm m_PopBoxForm;
         #endregion
 
         #region Function
         /// <summary>
-        /// 显示弹出对话框
+        /// 显示设置面板
         /// </summary>
-        /// <param name="title">标题</param>
-        /// <param name="content">内容</param>
-        /// <param name="buttonTexts">按钮文本</param>
-        /// <param name="callback">回调</param>
-        public void PopBox(string title, string content, string[] buttonTexts, Action<int> callback = null)
-        {
-            this.m_PopBoxForm.Title = title;
-            this.m_PopBoxForm.Content = content;
-            this.m_PopBoxForm.ButtonText = buttonTexts;
-            this.m_PopBoxForm.Callback = callback;
-            this.m_PopBoxForm.Show();
-        }
+        public void ShowSettingForm() => this.m_SettingForm.Show();
 
         /// <summary>
-        /// 消息提示
+        /// 显示弹出UGUI位置
         /// </summary>
-        /// <param name="message">消息</param>
-        public void Message(string message) => this.m_MessageForm.ShowMessage(message);
+        /// <param name="inputAnchoredPosition">UGUI位置</param>
+        /// <param name="outAnchoredPosition">回调</param>
+        public void PopAnchoredPosition(Vector2 inputAnchoredPosition, Action<Vector2> outAnchoredPosition = null)
+        {
+            this.m_AnchoredPositionPopForm.InputAnchoredPosition = inputAnchoredPosition;
+            this.m_AnchoredPositionPopForm.OutputAnchoredPosition = outAnchoredPosition;
+            this.m_AnchoredPositionPopForm.Show();
+        }
 
         /// <summary>
         /// 显示弹出文本框
@@ -160,9 +162,26 @@ namespace SimpleFramework.UI
         }
 
         /// <summary>
-        /// 显示设置面板
+        /// 消息提示
         /// </summary>
-        public void ShowSettingForm() => this.m_SettingForm.Show();
+        /// <param name="message">消息</param>
+        public void Message(string message) => this.m_MessageForm.ShowMessage(message);
+
+        /// <summary>
+        /// 显示弹出对话框
+        /// </summary>
+        /// <param name="title">标题</param>
+        /// <param name="content">内容</param>
+        /// <param name="buttonTexts">按钮文本</param>
+        /// <param name="callback">回调</param>
+        public void PopBox(string title, string content, string[] buttonTexts, Action<int> callback = null)
+        {
+            this.m_PopBoxForm.Title = title;
+            this.m_PopBoxForm.Content = content;
+            this.m_PopBoxForm.ButtonText = buttonTexts;
+            this.m_PopBoxForm.Callback = callback;
+            this.m_PopBoxForm.Show();
+        }
         #endregion
     }
 }

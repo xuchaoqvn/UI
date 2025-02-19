@@ -256,10 +256,18 @@ namespace SimpleFramework.UI
 
             this.RegisterEvent();
 
-            if (!string.IsNullOrEmpty(this.m_AudioPath))
+            if (!string.IsNullOrEmpty(this.m_AudioPath) && File.Exists(this.m_AudioPath))
+            {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 this.Prepare();
+            }
             else if (this.m_AudioClip != null)
             {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 this.m_AudioSource.clip = this.m_AudioClip;
                 this.m_Control.AudioName.text = this.m_AudioSource.clip.name;
                 this.m_LoadFinish = true;

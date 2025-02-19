@@ -226,11 +226,17 @@ namespace SimpleFramework.UI
 
             if (!string.IsNullOrEmpty(this.m_VideoPath))
             {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 this.m_VideoPlayer.source = VideoSource.Url;
                 this.m_VideoPlayer.url = this.m_VideoPath;
             }
             else if (this.m_VideoClip != null)
             {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 this.m_VideoPlayer.source = VideoSource.VideoClip;
                 this.m_VideoPlayer.clip = this.m_VideoClip;
             }

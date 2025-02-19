@@ -65,8 +65,11 @@ namespace SimpleFramework.UI
         {
             base.Register();
 
-            if (!string.IsNullOrEmpty(this.m_PicturePath))
+            if (!string.IsNullOrEmpty(this.m_PicturePath) && File.Exists(this.m_PicturePath))
             {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 Texture2D texture2D = new Texture2D(0, 0);
                 texture2D.LoadImage(File.ReadAllBytes(this.m_PicturePath));
 
@@ -78,6 +81,9 @@ namespace SimpleFramework.UI
             }
             else if (this.m_Texture != null)
             {
+                this.m_TextMeshProUGUI.text = string.Empty;
+                this.m_TextMeshProUGUI.gameObject.SetActive(false);
+
                 this.m_Picture.texture = this.m_Texture;
                 this.m_Picture.gameObject.SetActive(true);
                 this.SetPictureNativeSize(this.m_Texture);

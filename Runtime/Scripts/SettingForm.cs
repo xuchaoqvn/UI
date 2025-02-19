@@ -167,6 +167,20 @@ namespace SimpleFramework.UI
                     itemName.rectTransform.sizeDelta = new Vector2(itemName.preferredWidth, itemName.rectTransform.sizeDelta.y);
                     switch (uiType)
                     {
+                        case UIType.AnchoredPosition:
+                            {
+                                TextMeshProUGUI text = itemGameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
+                                Button button = itemGameObject.transform.GetChild(2).GetComponent<Button>();
+
+                                text.text = item.ValueString;
+                                button.onClick.RemoveAllListeners();
+                                button.onClick.AddListener(() => 
+                                {
+                                    text.text.TryParse(out Vector2 anchoredPosition);
+                                    UIComponent.Instance.PopAnchoredPosition(anchoredPosition, outAnchoredPosition => text.text = outAnchoredPosition.ToString());
+                                });
+                            }
+                            break;
                         case UIType.Text:
                             {
                                 TextMeshProUGUI text = itemGameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
@@ -413,6 +427,8 @@ namespace SimpleFramework.UI
                 itemParent.offsetMin = new Vector2(0.0f, -height);
                 itemParent.offsetMax = Vector2.zero;
             }
+
+            this.m_Init = true;
         }
 
         /// <summary>
@@ -575,6 +591,7 @@ namespace SimpleFramework.UI
                                 tmp_Dropdown.value = optionsConfigItem.DefaultIndex;
                             }
                             break;
+                        case UIType.AnchoredPosition:
                         case UIType.Text:
                         case UIType.File:
                         case UIType.Folder:
@@ -631,6 +648,7 @@ namespace SimpleFramework.UI
                                 (item as IOptionsConfigItem).Index = tmp_Dropdown.value;
                             }
                             break;
+                        case UIType.AnchoredPosition:
                         case UIType.Text:
                         case UIType.File:
                         case UIType.Folder:

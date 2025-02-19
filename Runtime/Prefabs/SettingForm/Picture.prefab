@@ -134,15 +134,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: E:\\Unity\\2024.10\\LunarSoil\\trunk\\LunarSoil\\Library\\PackageCache\\com.simpleframework.serialport@c3929763ba\\Runtime
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa1301ad06f6eef4685f541732dbe1da, type: 2}
-  m_sharedMaterial: {fileID: 6786650084373579352, guid: fa1301ad06f6eef4685f541732dbe1da,
+  m_sharedMaterial: {fileID: 537355713380050768, guid: fa1301ad06f6eef4685f541732dbe1da,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -504,15 +504,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New TextNew Text
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa1301ad06f6eef4685f541732dbe1da, type: 2}
-  m_sharedMaterial: {fileID: 6786650084373579352, guid: fa1301ad06f6eef4685f541732dbe1da,
+  m_sharedMaterial: {fileID: 537355713380050768, guid: fa1301ad06f6eef4685f541732dbe1da,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
